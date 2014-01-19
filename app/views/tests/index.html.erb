@@ -1,0 +1,12 @@
+<h1>Test List</h1>
+
+<%= link_to 'Create a Test', new_test_path %>
+
+<table>
+  <% @tests.each do |test| %>
+  <tr>
+    <td><%= test.title %></td>
+    <td><%= test.created_at.strftime("%b %d, %l:%M ") %></td>
+  </tr>
+  <% end %>
+</table>
