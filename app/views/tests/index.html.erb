@@ -7,6 +7,7 @@
   <tr>
     <td><%= test.title %></td>
     <td><%= test.created_at.strftime("%b %d, %l:%M ") %></td>
+    <td><%= link_to 'See test', test_path(test) %></td>
   </tr>
   <% end %>
 </table>

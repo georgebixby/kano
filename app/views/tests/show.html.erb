@@ -1,7 +1,59 @@
 <h1> <%= @test.title %> </h1>
 
 <p><%= @test.description %></p>
-<p><%= @test.question_one %></p>
-<p><%= @test.question_two %></p>
 
-<%= link_to 'See all test', tests_path %>
+<%= form_for(@answer) do |f| %>
+
+  <p><%= @test.question_one %></p>
+
+  <%= f.radio_button("answer_one", "I like it that way.") %>
+  <%= f.label "I like it that way." %><br>
+
+  <%= f.radio_button("answer_one", "I expect it to be that way.") %>
+  <%= f.label "I expect it to be that way." %><br>
+
+  <%= f.radio_button("answer_one", "I am neutral.") %>
+  <%= f.label "I am neutral." %><br>
+
+  <%= f.radio_button("answer_one", "I can live with it that way.") %>
+  <%= f.label "I can live with it that way." %><br>
+
+  <%= f.radio_button("answer_one", "I dislike it that way.") %>
+  <%= f.label "I dislike it that way." %><br>
+
+  <p><%= @test.question_two %></p>
+
+  <%= f.radio_button("answer_two", "I like it that way.") %>
+  <%= f.label "I like it that way." %><br>
+
+  <%= f.radio_button("answer_two", "I expect it to be that way.") %>
+  <%= f.label "I expect it to be that way." %><br>
+
+  <%= f.radio_button("answer_two", "I am neutral.") %>
+  <%= f.label "I am neutral." %><br>
+
+  <%= f.radio_button("answer_two", "I can live with it that way.") %>
+  <%= f.label "I can live with it that way." %><br>
+
+  <%= f.radio_button("answer_two", "I dislike it that way.") %>
+  <%= f.label "I dislike it that way." %><br>
+
+  </br><br>
+  <%= f.submit %>
+
+<% end %>
+
+<h2>Responses</h2>
+<table>
+  <% @response.each do |answer| %>
+  <tr>
+    <td><%= answer.created_at.strftime("%b %d, %l:%M ") %></td>
+    <td><%= answer.answer_one %></td>
+    <td><%= answer.answer_one %></td>
+  </tr>
+  <% end %>
+</table>
+
+<br>
+<%= link_to 'See all tests', tests_path %>
+

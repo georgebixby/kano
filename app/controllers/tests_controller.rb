@@ -5,7 +5,9 @@ class TestsController < ApplicationController
   end
 
   def show
-    @test = Test.find(params[:id])
+    @test = Test.find_by_id(params[:id])
+    @answer = Answer.create(test_id: @test.id)
+    @response = Answer.all
   end
 
   def new
@@ -16,7 +18,7 @@ class TestsController < ApplicationController
     @test = Test.new(test_params)
     respond_to do |format|
       if @test.save
-        format.html { redirect_to @test, notice: 'Book was successfully created.' }
+        format.html { redirect_to @test, notice: 'Test was successfully created.' }
         format.json { render action: 'show', status: :created, location: @test }
       else
         format.html { render action: 'new' }

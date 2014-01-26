@@ -6,6 +6,7 @@ Kano::Application.routes.draw do
   root 'tests#index'
 
   resources :tests
+  resources :answers
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
