@@ -6,8 +6,8 @@ class TestsController < ApplicationController
 
   def show
     @test = Test.find_by_id(params[:id])
-    @answer = Answer.create(test_id: @test.id)
-    @response = Answer.all
+    @answer = Answer.new(test_id: @test.id)
+    @response = Answer.where("test_id == ?", @test.id)
   end
 
   def new

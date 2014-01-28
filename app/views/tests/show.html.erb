@@ -38,6 +38,7 @@
   <%= f.radio_button("answer_two", "I dislike it that way.") %>
   <%= f.label "I dislike it that way." %><br>
 
+  <%= hidden_field_tag(:test_id, @test.id) %>
   </br><br>
   <%= f.submit %>
 
