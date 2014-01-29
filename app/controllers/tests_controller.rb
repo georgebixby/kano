@@ -1,5 +1,7 @@
 class TestsController < ApplicationController
 
+  before_filter :authenticate_user!, :only => 'new'
+
   def index
     @tests = Test.all
   end
@@ -26,6 +28,8 @@ class TestsController < ApplicationController
       end
     end
   end
+
+  private
 
   def test_params
     params.require(:test).permit(:title, :description, :question_one, :question_two)

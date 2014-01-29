@@ -2,7 +2,25 @@
 
 <%= link_to 'Create a Test', new_test_path %>
 
+<br><br>
+
 <table>
+  <legend>My Tests</legend>
+  <% if current_user %>
+  <% current_user.tests.each do |test| %>
+  <tr>
+    <td><%= test.title %></td>
+    <td><%= test.created_at.strftime("%b %d, %l:%M ") %></td>
+    <td><%= link_to 'See test', test_path(test) %></td>
+  </tr>
+  <% end %>
+  <% end %>
+</table>
+
+<br><br>
+
+<table>
+  <legend>All Tests</legend>
   <% @tests.each do |test| %>
   <tr>
     <td><%= test.title %></td>
@@ -11,3 +29,5 @@
   </tr>
   <% end %>
 </table>
+
+

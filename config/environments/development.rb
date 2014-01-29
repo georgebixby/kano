@@ -26,4 +26,10 @@ Kano::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  # This line sets the host option to localhost. If this application was going
+  # into production then we’d want to set this value to our domain name in the
+  # equivalent production.rb file.
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
 end
