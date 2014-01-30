@@ -45,6 +45,18 @@
 <% end %>
 
 <h2>Responses</h2>
+
+<table>
+  <tr>
+    <th>Category</th>
+    <th>Count</th>
+  </tr>
+  <tr>
+    <td>Must be</td>
+    <td><%= Answer.where(result: 'mustbe').count %></td>
+  </tr>
+</table>
+
 <table>
   <tr>
     <th>Time</th>
@@ -57,64 +69,7 @@
     <td><%= answer.created_at.strftime("%b %d, %l:%M ") %></td>
     <td><%= answer.answer_one %></td>
     <td><%= answer.answer_two %></td>
-
-    <% if answer.answer_one == "I like it that way." && answer.answer_two == "I like it that way." %>
-      <td>Undetermined</td>
-    <% elsif answer.answer_one == "I expect it to be that way." && answer.answer_two == "I like it that way." %>
-      <td>Undesired</td>
-    <% elsif answer.answer_one == "I am neutral." && answer.answer_two == "I like it that way." %>
-      <td>Undesired</td>
-    <% elsif answer.answer_one == "I can live with it that way." && answer.answer_two == "I like it that way." %>
-      <td>Undesired</td>
-    <% elsif answer.answer_one == "I dislike it that way." && answer.answer_two == "I like it that way." %>
-      <td>Undesired</td>
-
-    <% elsif answer.answer_one == "I like it that way." && answer.answer_two == "I expect it to be that way." %>
-      <td>Attractive<td>
-    <% elsif answer.answer_one == "I expect it to be that way." && answer.answer_two == "I expect it to be that way." %>
-      <td>Unimportant</td>
-    <% elsif answer.answer_one == "I am neutral." && answer.answer_two == "I expect it to be that way." %>
-      <td>Unimportant</td>
-    <% elsif answer.answer_one == "I can live with it that way." && answer.answer_two == "I expect it to be that way." %>
-      <td>Unimportant</td>
-    <% elsif answer.answer_one == "I dislike it that way." && answer.answer_two == "I expect it to be that way." %>
-      <td>Undesired</td>
-
-    <% elsif answer.answer_one == "I like it that way." && answer.answer_two == "I am neutral." %>
-      <td>Attractive<td>
-    <% elsif answer.answer_one == "I expect it to be that way." && answer.answer_two == "I am neutral." %>
-      <td>Unimportant</td>
-    <% elsif answer.answer_one == "I am neutral." && answer.answer_two == "I am neutral." %>
-      <td>Unimportant</td>
-    <% elsif answer.answer_one == "I can live with it that way." && answer.answer_two == "I am neutral." %>
-      <td>Unimportant</td>
-    <% elsif answer.answer_one == "I dislike it that way." && answer.answer_two == "I am neutral." %>
-      <td>Undesired</td>
-
-    <% elsif answer.answer_one == "I like it that way." && answer.answer_two == "I can live with it that way." %>
-      <td>Attractive<td>
-    <% elsif answer.answer_one == "I expect it to be that way." && answer.answer_two == "I can live with it that way." %>
-      <td>Unimportant</td>
-    <% elsif answer.answer_one == "I am neutral." && answer.answer_two == "I can live with it that way." %>
-      <td>Unimportant</td>
-    <% elsif answer.answer_one == "I can live with it that way." && answer.answer_two == "I can live with it that way." %>
-      <td>Unimportant</td>
-    <% elsif answer.answer_one == "I dislike it that way." && answer.answer_two == "I can live with it that way." %>
-      <td>Undesired</td>
-
-    <% elsif answer.answer_one == "I like it that way." && answer.answer_two == "I dislike it that way." %>
-      <td>One Dimensional</td>
-    <% elsif answer.answer_one == "I expect it to be that way." && answer.answer_two == "I dislike it that way." %>
-      <td>Must be</td>
-    <% elsif answer.answer_one == "I am neutral." && answer.answer_two == "I dislike it that way." %>
-      <td>Must be</td>
-    <% elsif answer.answer_one == "I can live with it that way." && answer.answer_two == "I dislike it that way." %>
-      <td>Must be</td>
-    <% elsif answer.answer_one == "I dislike it that way." && answer.answer_two == "I dislike it that way." %>
-      <td>Undetermined</td>
-
-
-    <% end %>
+    <td><%= answer.result %></td>
   </tr>
   <% end %>
 </table>
