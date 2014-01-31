@@ -38,6 +38,9 @@
   <%= f.radio_button("answer_two", "I dislike it that way.") %>
   <%= f.label "I dislike it that way." %><br>
 
+  <%= f.label "Name" %><br>
+  <%= f.text_field("name") %>
+
   <%= hidden_field_tag(:test_id, @test.id) %>
   </br><br>
   <%= f.submit %>
@@ -74,6 +77,7 @@
 
 <table>
   <tr>
+    <td>Name</td>
     <th>Time</th>
     <th>Functional Question</th>
     <th>Dysfunctional Question</th>
@@ -81,6 +85,7 @@
   </tr>
   <% @response.each do |answer| %>
   <tr>
+    <td><%= answer.name %></td>
     <td><%= answer.created_at.strftime("%b %d, %l:%M ") %></td>
     <td><%= answer.answer_one %></td>
     <td><%= answer.answer_two %></td>
