@@ -6,7 +6,37 @@ class Answer < ActiveRecord::Base
       answer_one == "I expect it to be that way." && answer_two == "I dislike it that way." ||
       answer_one == "I am neutral." && answer_two == "I dislike it that way." ||
       answer_one == "I can live with it that way." && answer_two == "I dislike it that way."
-      result = "mustbe"
+      result = "Must-be"
+    end
+    if
+      answer_one == "I like it that way." && answer_two == "I expect it to be that way." ||
+      answer_one == "I like it that way." && answer_two == "I am neutral." ||
+      answer_one == "I like it that way." && answer_two == "I can live with it that way."
+      result = "Attractive"
+    end
+    if
+      answer_one == "I expect it to be that way." && answer_two == "I like it that way." ||
+      answer_one == "I am neutral." && answer_two == "I like it that way." ||
+      answer_one == "I can live with it that way." && answer_two == "I like it that way." ||
+      answer_one == "I dislike it that way." && answer_two == "I like it that way." ||
+      answer_one == "I dislike it that way." && answer_two == "I expect it to be that way." ||
+      answer_one == "I dislike it that way." && answer_two == "I am neutral." ||
+      answer_one == "I dislike it that way." && answer_two == "I can live with it that way." ||
+      result = "Undesired"
+    end
+    if
+      answer_one == "I expect it to be that way." && answer_two == "I expect it to be that way." ||
+      answer_one == "I expect it to be that way." && answer_two == "I am neutral." ||
+      answer_one == "I expect it to be that way." && answer_two == "I can live with it that way." ||
+      answer_one == "I am neutral." && answer_two == "I expect it to be that way." ||
+      answer_one == "I am neutral." && answer_two == "I am neutral." ||
+      answer_one == "I am neutral." && answer_two == "I can live with it that way." ||
+      result = "Unimportant"
+    end
+    if
+      answer_one == "I like it that way." && answer_two == "I like it that way." ||
+      answer_one == "I dislike it that way." && answer_two == "I dislike it that way." ||
+      result = "Inconclusive"
     end
   end
 end

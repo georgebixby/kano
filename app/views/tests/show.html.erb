@@ -53,9 +53,24 @@
   </tr>
   <tr>
     <td>Must be</td>
-    <td><%= Answer.where(result: 'mustbe').count %></td>
+    <td><%= Answer.where(result: 'Must-be').count %></td>
   </tr>
-</table>
+  <tr>
+    <td>Attractive</td>
+    <td><%= Answer.where(result: 'Attractive').count %></td>
+  </tr>
+  <tr>
+    <td>Undesired</td>
+    <td><%= Answer.where(result: 'Undesired').count %></td>
+  </tr>
+  <tr>
+    <td>Unimportant</td>
+    <td><%= Answer.where(result: 'Unimportant').count %></td>
+  </tr>
+  <tr>
+    <td>Inconclusive</td>
+    <td><%= Answer.where(result: 'Inconclusive').count %></td>
+  </tr></table>
 
 <table>
   <tr>
