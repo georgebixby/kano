@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
 
-  before_filter :authenticate_user!, :only => 'new'
+  before_filter :authenticate_user!, :only => [:new, :index]
 
   def index
     @tests = Test.all
