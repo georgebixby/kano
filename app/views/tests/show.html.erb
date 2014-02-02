@@ -1,9 +1,10 @@
+<% if current_user.id == @test.user_id %>
+<p>This should appear only for the user who created this test</p>
+<% end %>
+
 <h1> <%= @test.title %> </h1>
-
 <p><%= @test.description %></p>
-
 <%= form_for(@answer) do |f| %>
-
   <p><%= @test.question_one %></p>
 
   <%= f.radio_button("answer_one", "I like it that way.") %>

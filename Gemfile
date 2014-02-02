@@ -12,6 +12,8 @@ group :development do
   gem 'sqlite3'
 end
 
+gem 'semantic-ui-sass', '~> 0.12.3.0'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

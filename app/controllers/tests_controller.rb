@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
 
-  before_filter :authenticate_user!, :only => 'new'
+  before_filter :authenticate_user!, :only => [:new, :index]
 
   def index
     @tests = Test.all
@@ -10,6 +10,10 @@ class TestsController < ApplicationController
     @test = Test.find_by_id(params[:id])
     @answer = Answer.new(test_id: @test.id)
     @response = Answer.where("test_id == ?", @test.id)
+  end
+
+  def has_test?(test)
+    self.test.exists?(:id == test.id)
   end
 
   def new
