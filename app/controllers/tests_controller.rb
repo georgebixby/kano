@@ -12,6 +12,10 @@ class TestsController < ApplicationController
     @response = Answer.where("test_id == ?", @test.id)
   end
 
+  def has_test?(test)
+    self.test.exists?(:id == test.id)
+  end
+
   def new
     @test = Test.new
   end

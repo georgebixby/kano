@@ -7,17 +7,30 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="ui menu">
+    <a href="<%= root_path %> "class="active item">Home</a>
+    <a href="<%= tests_path %> "class="item">My Tests</a>
+    <div class="right menu">
+      <% if user_signed_in? %>
+      <div class="item">
+        Signed in as <%= current_user.email %>&nbsp;&nbsp;
+        <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => "ui button" %>
+      </div>
+      <% else %>
+      <div class="item">
+        <%= link_to "Sign in", new_user_session_path, :class => "ui button teal" %>
+        <%= link_to "Sign up", new_user_registration_path, :class => "ui button" %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
+
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 
   <div id="user_nav">
-    <% if user_signed_in? %>
-      Signed in as <%= current_user.email %>. Not you?
-      <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> or
-      <%= link_to "Sign in", new_user_session_path %>
-    <% end %>
+
   </div>
 
   <%= yield %>

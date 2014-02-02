@@ -1,32 +1,44 @@
-<div class="ui two column page grid">
+<div class="ui grid stackable">
 
-  <div class="column">
-    <h1>Create a test</h1>
+  <div class="four wide column">
+  </div>
+
+  <div class="eight wide column">
+    <!-- <h1>Create a test</h1> -->
     <%= form_for (@test) do |f| %>
-      <div class="ui form segment">
-        <%= f.label :title %><br>
-        <%= f.text_field :title %><br>
-        <%= f.label :description %><br>
-        <%= f.text_area :description %><br>
-        <%= f.label :question_one %><br>
-        <%= f.text_area :question_one %><br>
-        <%= f.label :question_two %><br>
-        <%= f.text_area :question_two %><br>
+      <div class="ui form">
+        <div class="stackable ui grid">
+          <div class="sixteen wide column">
+            <%= f.text_field :title, :placeholder => "Add a title" %>
+          </div>
+          <div class="sixteen wide column">
+            <%= f.text_area :description, :placeholder => "Describe your feature" %>
+          </div>
+          <div class="sixteen wide column functional">
+            <%= f.text_area :question_one, :placeholder => "Ask your functional question",
+            :"data-content" => "e.g. How would you feel if [your product] <strong>did include</strong> [your feature idea]", :"data-position" => "right center" %>
+          </div>
+          <div class="sixteen wide column dysfunctional">
+            <%= f.text_area :question_two, :placeholder => "Ask your dysfunctional question",
+            :"data-content" => "e.g. How would you feel if [your product] <strong>did not include</strong> [your feature idea]", :"data-position" => "right center" %>
+          </div>
+        </div>
       </div>
-      <%= f.submit %>
+      <%= f.submit 'Create my test', :class => 'ui button teal' %>
     <% end %>
   </div>
-  <div class="column example">
-    <div class="ui icon input">
-        <input type="text" placeholder="Focus me..." data-content="You can use me to enter data" class="">
-        <i class="search icon"></i>
-      </div>
+  <div class="four wide column">
   </div>
 
 </div>
 
 <script>
-$('.example input')
+$('.functional textarea')
+  .popup({
+    on: 'focus'
+  })
+;
+$('.dysfunctional textarea')
   .popup({
     on: 'focus'
   })
