@@ -8,8 +8,10 @@
 </head>
 <body>
   <div class="ui menu">
-    <a href="<%= root_path %> "class="active item">Home</a>
-    <a href="<%= tests_path %> "class="item">My Tests</a>
+    <div class="item">Kano</div>
+    <% if user_signed_in? %>
+      <a href="<%= tests_path %> "class="item">My Tests</a>
+      <% end %>
     <div class="right menu">
       <% if user_signed_in? %>
       <div class="item">
@@ -25,13 +27,8 @@
     </div>
   </div>
 
-
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-
-  <div id="user_nav">
-
-  </div>
 
   <%= yield %>
 

@@ -1,0 +1,50 @@
+<h3 class="ui header">Summary</h3>
+<table class="ui table">
+  <tr>
+    <th>Category</th>
+    <th>Count</th>
+  </tr>
+  <tr>
+    <td>Must be</td>
+    <td><%= Answer.where(result: 'Must-be').count %></td>
+  </tr>
+  <tr>
+    <td>Attractive</td>
+    <td><%= Answer.where(result: 'Attractive').count %></td>
+  </tr>
+  <tr>
+    <td>Undesired</td>
+    <td><%= Answer.where(result: 'Undesired').count %></td>
+  </tr>
+  <tr>
+    <td>Unimportant</td>
+    <td><%= Answer.where(result: 'Unimportant').count %></td>
+  </tr>
+  <tr>
+    <td>Inconclusive</td>
+    <td><%= Answer.where(result: 'Inconclusive').count %></td>
+  </tr>
+</table>
+
+<div class="ui divider" style="display: block;"></div>
+
+<h3 class="ui header">All Resonses</h3>
+
+<table class="ui table">
+  <tr>
+    <th>Name</th>
+    <th>Time</th>
+    <th>Functional Question</th>
+    <th>Dysfunctional Question</th>
+    <th>Customer Response</th>
+  </tr>
+  <% @response.each do |answer| %>
+    <tr>
+      <td><%= answer.name %></td>
+      <td><%= answer.created_at.strftime("%b %d, %l:%M ") %></td>
+      <td><%= answer.answer_one %></td>
+      <td><%= answer.answer_two %></td>
+      <td><%= answer.result %></td>
+    </tr>
+  <% end %>
+</table>

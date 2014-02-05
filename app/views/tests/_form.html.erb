@@ -1,0 +1,42 @@
+<%= form_for(@answer) do |f| %>
+
+<div class="ui form">
+
+  <p><%= @test.question_one %></p>
+
+  <%= f.radio_button("answer_one", "I like it that way.") %>
+  <%= f.label "I like it that way." %><br>
+  <%= f.radio_button("answer_one", "I expect it to be that way.") %>
+  <%= f.label "I expect it to be that way." %><br>
+  <%= f.radio_button("answer_one", "I am neutral.") %>
+  <%= f.label "I am neutral." %><br>
+  <%= f.radio_button("answer_one", "I can live with it that way.") %>
+  <%= f.label "I can live with it that way." %><br>
+  <%= f.radio_button("answer_one", "I dislike it that way.") %>
+  <%= f.label "I dislike it that way." %><br>
+
+  <div class="ui divider" style="display: block;"></div>
+
+  <p><%= @test.question_two %></p>
+  <%= f.radio_button("answer_two", "I like it that way.") %>
+  <%= f.label "I like it that way." %><br>
+  <%= f.radio_button("answer_two", "I expect it to be that way.") %>
+  <%= f.label "I expect it to be that way." %><br>
+  <%= f.radio_button("answer_two", "I am neutral.") %>
+  <%= f.label "I am neutral." %><br>
+  <%= f.radio_button("answer_two", "I can live with it that way.") %>
+  <%= f.label "I can live with it that way." %><br>
+  <%= f.radio_button("answer_two", "I dislike it that way.") %>
+  <%= f.label "I dislike it that way." %><br>
+
+  <div class="ui divider" style="display: block;"></div>
+
+  <%= f.label "Name (optional)" %><br>
+  <%= f.text_field("name") %>
+
+  <%= hidden_field_tag(:test_id, @test.id) %>
+
+  <br><br>
+  <%= f.submit 'Submit my answer', :class => 'ui button teal' %>
+</div>
+<% end %>

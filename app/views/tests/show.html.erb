@@ -1,100 +1,17 @@
-<% if current_user.id == @test.user_id %>
-<p>This should appear only for the user who created this test</p>
-<% end %>
-
-<h1> <%= @test.title %> </h1>
-<p><%= @test.description %></p>
-<%= form_for(@answer) do |f| %>
-  <p><%= @test.question_one %></p>
-
-  <%= f.radio_button("answer_one", "I like it that way.") %>
-  <%= f.label "I like it that way." %><br>
-
-  <%= f.radio_button("answer_one", "I expect it to be that way.") %>
-  <%= f.label "I expect it to be that way." %><br>
-
-  <%= f.radio_button("answer_one", "I am neutral.") %>
-  <%= f.label "I am neutral." %><br>
-
-  <%= f.radio_button("answer_one", "I can live with it that way.") %>
-  <%= f.label "I can live with it that way." %><br>
-
-  <%= f.radio_button("answer_one", "I dislike it that way.") %>
-  <%= f.label "I dislike it that way." %><br>
-
-  <p><%= @test.question_two %></p>
-
-  <%= f.radio_button("answer_two", "I like it that way.") %>
-  <%= f.label "I like it that way." %><br>
-
-  <%= f.radio_button("answer_two", "I expect it to be that way.") %>
-  <%= f.label "I expect it to be that way." %><br>
-
-  <%= f.radio_button("answer_two", "I am neutral.") %>
-  <%= f.label "I am neutral." %><br>
-
-  <%= f.radio_button("answer_two", "I can live with it that way.") %>
-  <%= f.label "I can live with it that way." %><br>
-
-  <%= f.radio_button("answer_two", "I dislike it that way.") %>
-  <%= f.label "I dislike it that way." %><br>
-
-  <%= f.label "Name" %><br>
-  <%= f.text_field("name") %>
-
-  <%= hidden_field_tag(:test_id, @test.id) %>
-  </br><br>
-  <%= f.submit %>
-
-<% end %>
-
-<h2>Responses</h2>
-
-<table>
-  <tr>
-    <th>Category</th>
-    <th>Count</th>
-  </tr>
-  <tr>
-    <td>Must be</td>
-    <td><%= Answer.where(result: 'Must-be').count %></td>
-  </tr>
-  <tr>
-    <td>Attractive</td>
-    <td><%= Answer.where(result: 'Attractive').count %></td>
-  </tr>
-  <tr>
-    <td>Undesired</td>
-    <td><%= Answer.where(result: 'Undesired').count %></td>
-  </tr>
-  <tr>
-    <td>Unimportant</td>
-    <td><%= Answer.where(result: 'Unimportant').count %></td>
-  </tr>
-  <tr>
-    <td>Inconclusive</td>
-    <td><%= Answer.where(result: 'Inconclusive').count %></td>
-  </tr></table>
-
-<table>
-  <tr>
-    <td>Name</td>
-    <th>Time</th>
-    <th>Functional Question</th>
-    <th>Dysfunctional Question</th>
-    <th>Customer Response</th>
-  </tr>
-  <% @response.each do |answer| %>
-  <tr>
-    <td><%= answer.name %></td>
-    <td><%= answer.created_at.strftime("%b %d, %l:%M ") %></td>
-    <td><%= answer.answer_one %></td>
-    <td><%= answer.answer_two %></td>
-    <td><%= answer.result %></td>
-  </tr>
-  <% end %>
-</table>
-
-<br>
-<%= link_to 'See all tests', tests_path %>
-
+<div class="ui grid stackable">
+  <div class="two wide column">
+  </div>
+  <div class="six wide column">
+    <h1 class="ui header"> <%= @test.title %></h1>
+    <p><%= @test.description %></p>
+  </div>
+  <div class="six wide column">
+    <% if current_user.id == @test.user_id %>
+      <%= render "responses" %>
+    <% else %>
+      <%= render "form" %>
+    <% end %>
+  </div>
+  <div class="two wide column">
+  </div>
+</div>

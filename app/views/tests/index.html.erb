@@ -1,33 +1,28 @@
-<h1>Test List</h1>
+<div class="ui grid stackable">
 
-<%= link_to 'Create a Test', new_test_path %>
+  <div class="four wide column">
+  </div>
 
-<br><br>
+  <div class="eight wide column">
+    <%= link_to 'Create a Test', new_test_path, :class => 'ui button black small', :style => 'float:right;margin-top:2rem' %>
+    <h1 class="ui dividing header" style="">My Tests</h1>
+    <table class="ui table">
+      <% if current_user %>
+        <% current_user.tests.each do |test| %>
+        <tr>
+          <td><%= link_to test.title, test_path(test) %></td>
+          <td><%= test.created_at.strftime("%b %d, %l:%M ") %></td>
+          <td>15</td>
+          <td>Attractive</td>
+        </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
 
-<table>
-  <legend>My Tests</legend>
-  <% if current_user %>
-  <% current_user.tests.each do |test| %>
-  <tr>
-    <td><%= test.title %></td>
-    <td><%= test.created_at.strftime("%b %d, %l:%M ") %></td>
-    <td><%= link_to 'See test', test_path(test) %></td>
-  </tr>
-  <% end %>
-  <% end %>
-</table>
+  <div class="four wide column">
+  </div>
 
-<br><br>
-
-<!-- <table>
-  <legend>All Tests</legend>
-  <% @tests.each do |test| %>
-  <tr>
-    <td><%= test.title %></td>
-    <td><%= test.created_at.strftime("%b %d, %l:%M ") %></td>
-    <td><%= link_to 'See test', test_path(test) %></td>
-  </tr>
-  <% end %>
-</table> -->
+</div>
 
 
