@@ -11,7 +11,6 @@ class TestsController < ApplicationController
     @answer = Answer.new(test_id: @test.id)
     @response = Answer.where("test_id == ?", @test.id)
     @a = Answer.find(params[:id])
-    raise
   end
 
   def has_test?(test)
