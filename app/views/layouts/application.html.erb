@@ -8,10 +8,13 @@
 </head>
 <body>
   <div class="ui menu">
-    <div class="item">Kano</div>
+    <div class="item">
+      Kano
+    </div>
     <% if user_signed_in? %>
       <a href="<%= tests_path %> "class="item">My Tests</a>
-      <% end %>
+    <% end %>
+    <a href="<%= about_path %> "class="item">About</a>
     <div class="right menu">
       <% if user_signed_in? %>
       <div class="item">

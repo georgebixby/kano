@@ -10,6 +10,7 @@ Kano::Application.routes.draw do
   resources :answers
 
   get '/home' => 'static#home'
+  get '/about' => 'static#about'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
