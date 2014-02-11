@@ -1,17 +1,16 @@
-<div class="ui grid stackable">
-  <div class="two wide column">
-  </div>
-  <div class="six wide column">
-    <h1 class="ui header"> <%= @test.title %></h1>
-    <p><%= @test.description %></p>
-  </div>
-  <div class="six wide column">
-    <% if current_user.id == @test.user_id %>
-      <%= render "responses" %>
-    <% else %>
-      <%= render "form" %>
-    <% end %>
-  </div>
-  <div class="two wide column">
+<div class="max-width has-padding">
+  <div class="ui grid stackable">
+    <div class="eight wide column">
+      <h1 class="ui header"> <%= @test.title %></h1>
+      <p><%= @test.description %></p>
+    </div>
+    <div class="eight wide column">
+      <% if current_user.id == @test.user_id %>
+        <%= render "responses" %>
+      <% else %>
+        <%= render "form" %>
+      <% end %>
+    </div>
+
   </div>
 </div>

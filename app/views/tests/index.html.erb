@@ -1,28 +1,28 @@
-<div class="ui grid stackable">
 
-  <div class="four wide column">
-  </div>
+  <div class="max-width has-padding">
 
-  <div class="eight wide column">
-    <%= link_to 'Create a Test', new_test_path, :class => 'ui button black small', :style => 'float:right;margin-top:2rem' %>
-    <h1 class="ui dividing header" style="">My Tests</h1>
+    <%= link_to 'Create a Test', new_test_path, :class => 'ui button', :style => 'float:right' %>
+    <h1 class="ui " style="">My Tests</h1>
     <table class="ui table">
+        <tr>
+          <th>Name</th>
+          <th>Created</th>
+          <th># of Responses</th>
+        </tr>
+        <tr>
       <% if current_user %>
         <% current_user.tests.each do |test| %>
-        <tr>
           <td><%= link_to test.title, test_path(test) %></td>
           <td><%= test.created_at.strftime("%b %d, %l:%M ") %></td>
-          <td>15</td>
-          <td>Attractive</td>
+          <td><%= test.answers.count %></td>
         </tr>
         <% end %>
       <% end %>
     </table>
+
   </div>
 
-  <div class="four wide column">
-  </div>
 
-</div>
+
 
 

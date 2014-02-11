@@ -6,23 +6,23 @@
   </tr>
   <tr>
     <td>Must be</td>
-    <td><%= @answer.where(result: 'Must-be').count %></td>
+    <td><%= @responses.select{ |response| response.result == 'Must-be'}.count %></td>
   </tr>
   <tr>
     <td>Attractive</td>
-    <td><%= Answer.where(result: 'Attractive').count %></td>
+    <td><%= @responses.select{ |response| response.result == 'Attractive'}.count %></td>
   </tr>
   <tr>
     <td>Undesired</td>
-    <td><%= Answer.where(result: 'Undesired').count %></td>
+    <td><%= @responses.select{ |response| response.result == 'Undesired'}.count %></td>
   </tr>
   <tr>
     <td>Unimportant</td>
-    <td><%= Answer.where(result: 'Unimportant').count %></td>
+    <td><%=  @responses.select{ |response| response.result == 'Unimportant'}.count %></td>
   </tr>
   <tr>
     <td>Inconclusive</td>
-    <td><%= Answer.where(result: 'Inconclusive').count %></td>
+    <td><%= @responses.select{ |response| response.result == 'Inconclusive'}.count %></td>
   </tr>
 </table>
 
@@ -38,7 +38,7 @@
     <th>Dysfunctional Question</th>
     <th>Customer Response</th>
   </tr>
-  <% @response.each do |answer| %>
+  <% @responses.each do |answer| %>
     <tr>
       <td><%= answer.name %></td>
       <td><%= answer.created_at.strftime("%b %d, %l:%M ") %></td>

@@ -1,17 +1,21 @@
-<h2>Sign in</h2>
+<div class="max-width has-padding">
+  <div class="ui grid stackable">
+    <div class="four wide column">
+    </div>
+    <div class="eight wide column">
+      <h2>Sign in</h2>
+      <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
 
-<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
-
-  <div><%= f.submit "Sign in" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+        <div class="ui form">
+          <div><%= f.email_field :email, :placeholder => 'email', :autofocus => true %></div><br>
+          <div><%= f.password_field :password %></div><br>
+          <% if devise_mapping.rememberable? -%>
+            <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div><br>
+          <% end -%>
+          <div><%= f.submit "Sign in", :class => 'ui button' %></div><br>
+        </div>
+      <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

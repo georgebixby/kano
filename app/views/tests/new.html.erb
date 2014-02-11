@@ -1,18 +1,18 @@
+<div class="max-width has-padding">
 <div class="ui grid stackable">
 
-  <div class="four wide column">
-  </div>
-
-  <div class="eight wide column">
+  <div class="ten wide column">
     <!-- <h1>Create a test</h1> -->
     <%= form_for (@test) do |f| %>
       <div class="ui form">
         <div class="stackable ui grid">
           <div class="sixteen wide column">
-            <%= f.text_field :title, :placeholder => "Add a title" %>
+            <%= f.text_field :title, :placeholder => "Add a title",
+            :"data-content" => "<strong>Tip</strong>: Users will see this title", :"data-position" => "right center" %>
           </div>
           <div class="sixteen wide column">
-            <%= f.text_area :description, :placeholder => "Describe your feature" %>
+            <%= f.text_area :description, :placeholder => "Describe your feature",
+            :"data-content" => "<strong>Tip</strong>: help the user understand what the feature would do", :"data-position" => "right center" %>
           </div>
           <div class="sixteen wide column functional">
             <%= f.text_area :question_one, :placeholder => "Ask your functional question",
@@ -24,7 +24,7 @@
           </div>
         </div>
       </div>
-      <%= f.submit 'Create my test', :class => 'ui button teal' %>
+      <%= f.submit 'Create my test', :class => 'ui button' %>
     <% end %>
   </div>
   <div class="four wide column">
@@ -33,7 +33,7 @@
 </div>
 
 <script>
-$('.functional textarea')
+$('textarea, input')
   .popup({
     on: 'focus'
   })

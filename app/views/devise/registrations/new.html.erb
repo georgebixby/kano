@@ -1,18 +1,20 @@
-<h2>Sign up</h2>
+<div class="max-width has-padding">
+  <div class="ui grid stackable">
+    <div class="four wide column">
+    </div>
+    <div class="eight wide column">
+      <h2>Sign up</h2>
+      <%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+        <%= devise_error_messages! %>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
-
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
-
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
-
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+        <div class="ui form">
+          <div><%= f.email_field :email, :placeholder => 'email', :autofocus => true %></div><br>
+          <div><%= f.password_field :password %></div><br>
+          <div><%= f.password_field :password_confirmation %></div><br>
+          <div><%= f.submit "Sign up", :class => 'ui button' %></div><br>
+        </div>
+      <% end %>
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>

@@ -14,9 +14,35 @@
 
 @import "semantic-ui";
 
+/* Flash messages */
 
-.ui.form textarea {
-  height: 6em;
+p.notice {
+  background-color: #DEFCD5;
+  color: #52A954;
+  padding: 1rem;
+}
+p.error {
+  background-color: #F1D7D7;
+  color: #A95252;
+  padding: 1rem;
+}
+
+/* Forms */
+
+.ui.form {
+  textarea {
+    height: 6em;
+  }
+}
+
+/* Typography */
+
+.small-text {
+  font-size: 0.85rem;
+}
+
+.medium-text {
+  font-size: 1.35rem;
 }
 
 body {
@@ -24,6 +50,18 @@ body {
   font-family: arial;
 }
 
+.ui.items>.item {
+  min-height: 150px;
+}
 
+/* Layout */
 
-
+.max-width {
+  max-width: 62rem;
+  margin: auto;
+  position: relative;
+}
+.has-padding {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}

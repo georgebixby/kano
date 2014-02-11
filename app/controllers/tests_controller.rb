@@ -9,7 +9,7 @@ class TestsController < ApplicationController
   def show
     @test = Test.find_by_id(params[:id])
     @answer = Answer.new(test_id: @test.id)
-    @response = Answer.where("test_id == ?", @test.id)
+    @responses = Answer.where("test_id == ?", @test.id)
     @a = Answer.find(params[:id])
   end
 

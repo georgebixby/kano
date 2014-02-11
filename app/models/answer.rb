@@ -14,4 +14,5 @@ class Answer < ActiveRecord::Base
       result = "Inconclusive"
     end
   end
+
 end
