@@ -10,7 +10,6 @@ class TestsController < ApplicationController
     @test = Test.find_by_id(params[:id])
     @answer = Answer.new(test_id: @test.id)
     @responses = Answer.where("test_id == ?", @test.id)
-    @a = Answer.find(params[:id])
   end
 
   def has_test?(test)
