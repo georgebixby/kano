@@ -6,7 +6,12 @@ Kano::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'static#home'
 
-  resources :tests
+  resources :tests do
+    member do
+      get 'report'
+    end
+  end
+
   resources :answers
 
   get '/home' => 'static#home'

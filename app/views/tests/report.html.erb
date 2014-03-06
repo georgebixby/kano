@@ -1,0 +1,12 @@
+<div class="max-width has-padding">
+  report
+  <div class="ui grid stackable">
+    <div class="eight wide column">
+      <h1 class="ui header"> <%= @test.title %></h1>
+      <p><%= @test.description %></p>
+    </div>
+    <div class="eight wide column">
+      <%= render "responses" %>
+    </div>
+  </div>
+</div>
