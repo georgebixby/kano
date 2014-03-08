@@ -9,12 +9,10 @@ class TestsController < ApplicationController
   def show
     @test = Test.find_by_id(params[:id])
     @answer = Answer.new(test_id: @test.id)
-    @responses = Answer.where(test_id: @test.id)
   end
 
   def report
     @test = Test.find_by_id(params[:id])
-    @answer = Answer.new(test_id: @test.id)
     @responses = Answer.where(test_id: @test.id)  end
 
   def has_test?(test)
@@ -26,7 +24,6 @@ class TestsController < ApplicationController
   end
 
   def create
-
     @test = current_user.tests.new(test_params)
     respond_to do |format|
       if @test.save

@@ -5,12 +5,7 @@
       <p><%= @test.description %></p>
     </div>
     <div class="eight wide column">
-      <% if current_user && current_user.id == @test.user_id %>
-        <%= render "responses" %>
-      <% else %>
-        <%= render "form" %>
-      <% end %>
+      <%= render "form" %>
     </div>
-
   </div>
 </div>

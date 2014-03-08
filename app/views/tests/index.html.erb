@@ -6,6 +6,7 @@
     <table class="ui table">
         <tr>
           <th>Name</th>
+          <th>Report</th>
           <th>Created</th>
           <th># of Responses</th>
         </tr>
@@ -13,6 +14,7 @@
       <% if current_user %>
         <% current_user.tests.each do |test| %>
           <td><%= link_to test.title, test_path(test) %></td>
+          <td><%= link_to 'report', report_test_path(test) %></td>
           <td><%= test.created_at.strftime("%b %d, %l:%M ") %></td>
           <td><%= test.answers.count %></td>
         </tr>
