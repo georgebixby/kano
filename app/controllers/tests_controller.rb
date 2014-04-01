@@ -24,6 +24,7 @@ class TestsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @test = current_user.tests.new(test_params)
     respond_to do |format|
       if @test.save
@@ -39,7 +40,7 @@ class TestsController < ApplicationController
   private
 
   def test_params
-    params.require(:test).permit(:title, :description, :question_one, :question_two)
+    params.require(:test).permit(:title, :description, :question_one, :question_two, :document)
   end
 
 end

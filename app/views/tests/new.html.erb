@@ -3,7 +3,8 @@
 
   <div class="ten wide column">
     <!-- <h1>Create a test</h1> -->
-    <%= form_for (@test) do |f| %>
+    <%= form_for @test, :url => tests_path, :html => { :multipart => true } do |f| %>
+     <%= f.file_field :document %>
       <div class="ui form">
         <div class="stackable ui grid">
           <div class="sixteen wide column">
@@ -31,6 +32,8 @@
   </div>
 
 </div>
+
+
 
 <script>
 $('textarea, input')

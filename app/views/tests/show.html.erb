@@ -3,6 +3,9 @@
     <div class="eight wide column">
       <h1 class="ui header"> <%= @test.title %></h1>
       <p><%= @test.description %></p>
+      <% if @test.document.exists? %>
+        <%= image_tag @test.document.url, class: 'test-image' %>
+      <% end %>
     </div>
     <div class="eight wide column">
       <%= render "form" %>

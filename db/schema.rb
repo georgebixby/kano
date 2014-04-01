@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140131030102) do
+ActiveRecord::Schema.define(version: 20140328035933) do
 
   create_table "answers", force: true do |t|
     t.integer  "test_id"
@@ -25,6 +25,18 @@ ActiveRecord::Schema.define(version: 20140131030102) do
 
   add_index "answers", ["test_id"], name: "index_answers_on_test_id"
 
+  create_table "documents", force: true do |t|
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "add_attachment_file_name"
+    t.string   "add_attachment_content_type"
+    t.integer  "add_attachment_file_size"
+    t.datetime "add_attachment_updated_at"
+  end
+
+  add_index "documents", ["user_id"], name: "index_documents_on_user_id"
+
   create_table "tests", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -33,6 +45,11 @@ ActiveRecord::Schema.define(version: 20140131030102) do
     t.text     "question_one"
     t.text     "question_two"
     t.integer  "user_id"
+    t.integer  "document_id"
+    t.string   "document_file_name"
+    t.string   "document_content_type"
+    t.integer  "document_file_size"
+    t.datetime "document_updated_at"
   end
 
   add_index "tests", ["user_id"], name: "index_tests_on_user_id"
